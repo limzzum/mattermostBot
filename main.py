@@ -20,7 +20,7 @@ def schedule_multiple_notifications(webhook_url, messages, times):
 
     for i, message in enumerate(messages):
         time = times[i]
-        scheduler.add_job(send_mattermost_message, 'cron', day_of_week='0-6', hour=time.hour, minute=time.minute, args=[webhook_url, message])
+        scheduler.add_job(send_mattermost_message, 'cron', day_of_week='mon-fri', hour=time.hour, minute=time.minute, args=[webhook_url, message])
 
     scheduler.start()
 
