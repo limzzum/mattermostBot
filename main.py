@@ -18,13 +18,13 @@ def schedule_multiple_notifications(webhook_url, messages, times):
 
     for i, message in enumerate(messages):
         time = times[i]
-        scheduler.add_job(send_mattermost_message, 'cron', day_of_week='mon-fri', hour=time.hour, minute=time.minute, args=[webhook_url, message])
+        scheduler.add_job(send_mattermost_message, 'cron', day_of_week='0-6', hour=time.hour, minute=time.minute, args=[webhook_url, message])
 
     scheduler.start()
 
 # Mattermost 웹훅 URL 및 전송할 메시지, 반복 시간 설정
-webhook_url = 'https://meeting.ssafy.com/hooks/m6375679i7g7xna5g4b5iryhzo'
+webhook_url = 'https://meeting.ssafy.com/hooks/prdwpspz6pgwunzk8or4jxfcor'
 messages = ['입실 체크 하세요', '퇴실 체크 하세요']
-times = [datetime.strptime(time, '%H:%M') for time in ['08:50','18:00']]
+times = [datetime.strptime(time, '%H:%M') for time in ['16:20','16:21']]
 
 schedule_multiple_notifications(webhook_url, messages, times)
