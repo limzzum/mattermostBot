@@ -24,7 +24,7 @@ def schedule_multiple_notifications(webhook_url, messages, times):
 
 # Mattermost 웹훅 URL 및 전송할 메시지, 반복 시간 설정
 webhook_url = 'https://meeting.ssafy.com/hooks/prdwpspz6pgwunzk8or4jxfcor'
-messages = ['입실 체크 하세요', '퇴실 체크 하세요']
-times = [datetime.strptime(time, '%H:%M') for time in ['16:50','16:51']]
+messages = ['@here 입실 체크 하세요', '@here 퇴실 체크 하세요']
+times = [datetime.strptime(time, '%H:%M') for time in ['17:23','17:24']]
 
 schedule_multiple_notifications(webhook_url, messages, times)
